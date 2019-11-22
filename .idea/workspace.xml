@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55742eae-ee73-4bbe-b2ab-885078202409" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/WildController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/wild/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -133,8 +137,13 @@
   <component name="ProjectId" id="1TvYE0TzbiZZNxCc0gM1C6VPvNH" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../projet2/orleans-0919-php-countryclub" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -160,7 +169,10 @@
       <updated>1574341920914</updated>
       <workItem from="1574341922978" duration="8540000" />
       <workItem from="1574355316963" duration="43000" />
-      <workItem from="1574376413026" duration="226000" />
+      <workItem from="1574376413026" duration="666000" />
+      <workItem from="1574401900820" duration="2049000" />
+      <workItem from="1574409376433" duration="146000" />
+      <workItem from="1574416930896" duration="12136000" />
     </task>
     <servers />
   </component>
