@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<header>
+    {% include 'navbar.html.twig' %}
+</header>
 <body>
     <h1>{{ website }} index</h1>
+    <a href="{{ path('app_index') }}"Acceuil></a>
 </body>
 </html>
