@@ -20,4 +20,11 @@ class WildController extends AbstractController
             'website' => 'Wild Séries',
         ]);
     }
+    /**
+     * @Route("/wild/show/{page}", name="wild_show")
+     */
+    public function show(int $page): Response
+    {
+        return $this->render('wild/show.html.twig', ['page' =>$page]);
+    }
 }
