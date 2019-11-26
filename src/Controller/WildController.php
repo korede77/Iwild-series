@@ -21,10 +21,16 @@ class WildController extends AbstractController
         ]);
     }
     /**
-     * @Route("/wild/show/{page}", name="wild_show")
+     * @Route("/wild/show/{slug}",
+     *     requirements={"slug"="[a-z0-9-]+"},
+     *     defaults={"slug"="Aucune série sélectionnée, veuillez choisir une série"},
+     *     name="wild_show")
      */
-    public function show(int $page): Response
+    public function show(string $slug): Response
     {
-        return $this->render('wild/show.html.twig', ['page' =>$page]);
+        $slug = ucwords(str_replace("-"," ",$slug));
+        return $this->render('wild/show.html.twig', [
+            'slug' => $slug,
+            ]);
     }
 }
