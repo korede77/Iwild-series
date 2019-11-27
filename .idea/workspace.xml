@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55742eae-ee73-4bbe-b2ab-885078202409" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/wild/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Program.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191126172052.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191126230314.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191127075336.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/CategoryRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/ProgramRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/WildController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/WildController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -216,6 +219,10 @@
       <workItem from="1574714490553" duration="5484000" />
       <workItem from="1574743559425" duration="3999000" />
       <workItem from="1574754276979" duration="7445000" />
+      <workItem from="1574787616415" duration="1836000" />
+      <workItem from="1574803943938" duration="3876000" />
+      <workItem from="1574833916049" duration="1017000" />
+      <workItem from="1574840327256" duration="2988000" />
     </task>
     <servers />
   </component>
