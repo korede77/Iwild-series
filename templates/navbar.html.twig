@@ -1,12 +1,7 @@
-{% extends 'base.html.twig' %}
-{% block header %}
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('app_index') }}">Home </a>
-                </li>
-            </ul>
-        </div>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-danger bg-danger ">
+        <img src="/{{ asset('images/ws.jpeg') }}" width="50" height="50" alt="">
+            <a class="navbar-brand text-white" href="{{ path('app_index') }}" > Home </a>
+
     </nav>
-{% endblock %}
+</header>

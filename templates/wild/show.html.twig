@@ -14,7 +14,10 @@
     </div>
 
     <a href="{{ path('wild_index') }}">
-        Retour à l'accueil
-    </a>
+        <button type="button" class="btn btn-danger">  Retour à l'accueil</button>
 
+    </a>
+        <a href="{{ path('wild_program', {'slug':"walking-dead"}) }}">
+            <button type="button" class="btn btn-danger"> Les saisons</button>
+        </a>
 {% endblock %}

@@ -1,0 +1,27 @@
+{# templates/wild/program.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}{{ slug }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-xl-center">Toutes les saisons  de la serie {{ slug }} : </h1>
+    <div class=" container align-content-center">
+        {% for season in seasons %}
+            <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+                <div class="card-header">
+                    <h2>
+                        <a href="/wild/season/{{ season.id }}">
+                            Saison{{ season.id }}
+                        </a>
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Sortie: {{ season.year }}</h5>
+                    <p class="card-text">{{ season.description }}.</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+        <a href="{{ path('app_index') }}">
+            <button type="button" class="btn btn-danger">   Retour à l'accueil</button>
+        </a>
+{% endblock %}
