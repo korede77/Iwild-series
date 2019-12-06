@@ -4,25 +4,28 @@
 
 {% block body %}
     <h1>Toutes les séries de la table program : </h1>
+    <div class="container" >
         {% for program in programs %}
-            <div class="container" >
-                <div class="row" >
-                    <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-                    <p>{{ program.summary }}</p>
+            <div class="card text-white bg-dark mb-3" style="max-width: 65rem;">
+                <div class="card-header"> <h2>{{ loop.index }} - {{ program.title }}</div>
+                <div class="card-body">
+                    <h5 class="card-title">Catégorie : {{ program.category.name }}</h5>
+                    <p class="card-text">{{ program.summary }}</p>
                 </div>
             </div>
-        {% else %}
+            {% else %}
             Aucune série trouvée.
         {% endfor %}
+    </div>
+
     <a href="{{ path('app_index') }}">
-        Retour à l'accueil
+        <button type="button" class="btn btn-danger">Retour à l'accueil</button>
+
     </a>
     <a href="{{ path('wild_show', { 'slug': "walking-dead" }) }}">
-        Testing show() method from WildController with a real program s slug.
+        <button type="button" class="btn btn-danger">  WALKING DEAD</button>
     </a>
     <br>
-    <a href="{{ path('wild_index') }}">
-        Testing index() method from WildController to view all programs.
-    </a>
+
 
 {% endblock %}

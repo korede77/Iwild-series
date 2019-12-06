@@ -1,24 +1,7 @@
+@import "~bootstrap/scss/bootstrap";
 body {
-    background-color:white;
-}
-ul {
-  list-style-type: none;
-}
-ul {
-  list-style-type: none;
-
-  overflow: hidden;
-  background-color:red;
+  background-color:white;
+  padding-bottom: 10rem;
+  margin: 30rem;
 }
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color:whitesmoke;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
