@@ -6,12 +6,14 @@ namespace App\Controller;
 
 
 use App\Entity\Category;
+use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Repository\CategoryRepository;
 use App\Repository\SeasonRepository;
 use Doctrine\ORM\Query\AST\OrderByItem;
 use Doctrine\ORM\Query\Expr\OrderBy;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -52,6 +54,7 @@ class WildController extends AbstractController
      */
     public function show(?string $slug):Response
     {
+
         if (!$slug) {
             throw $this
                 ->createNotFoundException('No slug has been sent to find a program in program\'s table.');
@@ -59,15 +62,19 @@ class WildController extends AbstractController
         $slug = preg_replace(
             '/-/',
             ' ', ucwords(trim(strip_tags($slug)), "-")
+
         );
+
+
         $program = $this->getDoctrine()
             ->getRepository(Program::class)
-            ->findOneBy(['title' => mb_strtolower($slug)]);
+            ->findOneBy(['title' => $slug]);
         if (!$program) {
             throw $this->createNotFoundException(
                 'No program with '.$slug.' title, found in program\'s table.'
             );
         }
+
         return $this->render('wild/show.html.twig', [
             'program' => $program,
             'slug'  => $slug,
@@ -155,4 +162,20 @@ class WildController extends AbstractController
                 'id' => $id,
         ]);
     }
+    /**
+     * @param integer $category
+     * @Route("/category/{category}/episode/{episode}", name="episode")
+     * @return Response
+     */
+    public function showEpisode(Category $category, Episode $episode):Response
+    {
+        $season = $episode->getSeason();
+        $program = $season->getProgram();
+        return $this->render('wild/episode.html.twig', [
+            'program'=> $program,
+            'season' => $season,
+            'episode' => $episode,
+        ]);
+    }
+
 }
