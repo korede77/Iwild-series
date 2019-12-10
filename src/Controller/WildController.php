@@ -9,12 +9,15 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\CategoryType;
+use App\Form\ProgramSearchType;
 use App\Repository\CategoryRepository;
 use App\Repository\SeasonRepository;
 use Doctrine\ORM\Query\AST\OrderByItem;
 use Doctrine\ORM\Query\Expr\OrderBy;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -31,6 +34,14 @@ class WildController extends AbstractController
      */
     public function index() :Response
     {
+        $form = $this->createForm(
+            ProgramSearchType::class,
+            null,
+            ['method' => Request::METHOD_GET]
+        );
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findAll();
@@ -41,6 +52,7 @@ class WildController extends AbstractController
         }
         return $this->render('wild/index.html.twig', [
             'programs' => $programs,
+            'form' => $form->createView(),
         ]);
     }
     /**
@@ -163,11 +175,11 @@ class WildController extends AbstractController
         ]);
     }
     /**
-     * @param integer $category
-     * @Route("/category/{category}/episode/{episode}", name="episode")
+     * @param integer $id
+     * @Route("/episode/{id}", name="episode")
      * @return Response
      */
-    public function showEpisode(Category $category, Episode $episode):Response
+    public function showEpisode(Episode $episode):Response
     {
         $season = $episode->getSeason();
         $program = $season->getProgram();
