@@ -13,6 +13,6 @@ class ProgramSearchType extends AbstractType
     {
         parent::buildForm($builder, $options);
         $builder->add('searchField');
-
     }
 }
+

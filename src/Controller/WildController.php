@@ -9,6 +9,7 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\CategoryType;
 use App\Form\ProgramSearchType;
 use App\Repository\CategoryRepository;
 use App\Repository\SeasonRepository;
@@ -33,10 +34,13 @@ class WildController extends AbstractController
      */
     public function index() :Response
     {
-        $form = $this->createForm(ProgramSearchType::class,
+        $form = $this->createForm(
+            ProgramSearchType::class,
             null,
             ['method' => Request::METHOD_GET]
         );
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
 
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
