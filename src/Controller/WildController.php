@@ -179,7 +179,7 @@ class WildController extends AbstractController
      * @Route("/episode/{id}", name="episode")
      * @return Response
      */
-    public function showEpisode(Episode $episode):Response
+    public function showEpisode( Episode $episode):Response
     {
         $season = $episode->getSeason();
         $program = $season->getProgram();
@@ -189,5 +189,6 @@ class WildController extends AbstractController
             'episode' => $episode,
         ]);
     }
+
 
 }
