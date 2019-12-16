@@ -10,6 +10,18 @@
             <h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
+            <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+                {% for actor in program.actors %}
+                    <div class="card-header">
+                        <h3> <a href="/wild/actor/{{ actor.id }}">
+                                {{ actor.name }}
+                            </a>
+                        </h3>
+                    </div>
+                {% else %}
+                    <div>Aucun acteur pour cette série</div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

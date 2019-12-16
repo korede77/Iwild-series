@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 
+use App\Entity\Actor;
 use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
@@ -174,10 +175,11 @@ class WildController extends AbstractController
                 'id' => $id,
         ]);
     }
+
     /**
-     * @param integer $id
-     * @Route("/episode/{id}", name="episode")
+     * @param Episode $episode
      * @return Response
+     * @Route("/episode/{id}", name="episode")
      */
     public function showEpisode( Episode $episode):Response
     {
@@ -190,5 +192,21 @@ class WildController extends AbstractController
         ]);
     }
 
+    /**
+     * @param integer $id
+     * @return Response
+     * @Route("/actor/{id}", name="actor")
+     */
 
+     public function  showActor(int $id)
+     {
+         $actor = $this->getDoctrine()
+             ->getRepository(Actor::class)
+             ->findOneBy(['id' => $id]);
+         $programs = $actor->getPrograms();
+         return  $this->render('wild/actor.html.twig', [
+             'actor' => $actor,
+             'programs' => $programs,
+         ]);
+     }
 }
