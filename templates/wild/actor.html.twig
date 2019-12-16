@@ -1,0 +1,32 @@
+{# templates/wild/actor.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+       <h2> Actor {{ actor.id }} - {{ actor.name }}</h2>
+
+<div class=" container align-content-center">
+    <div class="card text-white bg-dark mb-3" style="max-width: 70rem;">
+        <div class="card-header text-center" ><h3>Liste des séries de {{ actor.name }}</h3></div>
+        <div class=" container align-content-center">
+            <div class="card text-white bg-dark mb-3" style="max-width: 70rem;">
+                {% for program in programs %}
+                <div class="card-header">
+                    <h3> <a href="{{ path('wild_show', {'slug': program.title|replace({' ': '-'})|lower }) }}">
+                            Série {{ program.id }} - {{ program.title }}
+                        </a>
+                    </h3>
+                </div>
+                {% else %}
+                    <li>Aucun film pour cet acteur</li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+    <div>
+        <a href="{{ path('wild_index') }}">
+            <button type="button" class="btn btn-danger"> Retour</button>
+        </a>
+    </div>
+{% endblock %}
